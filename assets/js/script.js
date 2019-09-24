@@ -4,7 +4,8 @@
 var ans;
 var name;
 var gender;
-
+var lies = 0;
+var class_;
 
 function startGame() {
     alert("*you wake up in an infamiliar place*\n"
@@ -18,7 +19,7 @@ function startGame() {
 
     alert("You slowly start remembering what had happened that night, you vaguely remeber... aliens, were you helping them? One of the guards caught you and shot you with some weird sci-fi gun.");
 
-    alert("Richard: 'BTW my name is, Richard, I was a Kyle runner.'");
+    alert("Richard: 'BTW my name is, Richard, I was a Kyle.'");
 
     nameAndGender();
 
@@ -26,25 +27,74 @@ function startGame() {
 
     seenAlien();
 
+    alert("One of the guards looks nervous")
+
 
 }
 
 function nameAndGender() {
-    name = prompt("Richard: 'So what's your name?", "Type your name here.'");
+    name = prompt("Richard: 'So what's your name?'", "Type your name here.");
     ans = prompt("Richard: 'What gender do you identify as?'"
         + "\n\n1: Boi\n2: Whamen\n\nType 1 or 2 or something else idc");
-    if (ans == 1) {
+    if (ans == "1") {
         gender = "boi";
+        console.log("gender: boi")
     }
-    if (ans == 2) {
+    else if (ans == "2") {
         gender = "whamen";
+        console.log("gender: whamen")
     }
     else {
-        gender = ans;
+        alert("Richard: 'Excuse me, what? There are no more than 2 genders!'");
+        alert("[GAMEOVER]");
+        // fail;
+        terminate; // Geeft een error maar is bedoeld om alles te stoppen
+        // window.stop();
     }
     ans = "";
     ans = prompt("Richard: 'So you tried to raid Area 51 right?'"
-        + "\n\n1.yes\n2.no\n\nType 1 or 2.")
+        + "\n\n1.yes\n2.no [lie]\n\nType 1 or 2.")
+    if (ans == "1") {
+        ans = prompt("Richard: 'Yeah, thought so. What class were you?'\n\n"
+            + "1. Kyle\n"
+            + "2. Naruto runner\n"
+            + "3. Rock thrower\n"
+            + "4. Karen\n"
+            + "5. Furry\n"
+            + "6. Florida men\n"
+            + "7. Anti-vaxxer\n\n"
+            + "Type 1, 2, 3, 4, 5, 6 or 7");
+        switch (ans) {
+            case "1":
+                class_ = "Kyle";
+                break;
+            case "2":
+                class_ = "Naruto runner";
+                break;
+            case "3":
+                class_ = "Rock thrower";
+                break;
+            case "4":
+                class_ = "Karen";
+                break;
+            case "5":
+                class_ = "Furry";
+                break;
+            case "6":
+                class_ = "Florida men";
+                break;
+            case "7":
+                class_ = "Anti-vaxxer";
+                break;
+            default:
+                class_ = "Florida men";
+        }
+    }
+    if (ans == "2") {
+        alert("Richard: 'What? Stop lying asshole.'\n\n"
+            + "[lie failed: Richard will remeber that]");
+        lies = +1;
+    }
 }
 
 function seenAlien() {
@@ -55,7 +105,7 @@ function seenAlien() {
     if (ans == "1") {
         alert("Richard: 'Yeah, sure man. [sarcasticly]'\n\n*one of the guards giggles*");
     }
-    if (ans == "2") {
+    else if (ans == "2") {
         alert("Richard: 'Too bad, we all tried.'\n\n*both guards giggle*");
     }
     else {

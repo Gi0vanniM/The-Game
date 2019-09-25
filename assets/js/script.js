@@ -166,6 +166,7 @@ function alienConvo0() {
         alert("Glipglab: 'Oh well, I have some explaining to do then. My name is Glipglab."
             + "Last night you and your friends raided Area 51 and broke me and some other aliens out. "
             + "When we tried to escape, the guards killed your friends. You are the only one to survive so they used amnestics on you.'");
+        alert("Glibglab: 'We're gonna break the other aliens out of Area 51.'");
     }
     // else if (alienConvo0_1 == "2") { // remember a bit
     //     console.log("remember a bit");
@@ -195,7 +196,23 @@ function alienConvo0() {
             TERMINATE_GAME_OVER; // Error yes ik weet mieneer
         }
     }
-    // go on todo
+    var alienConvo0_3 = prompt("Glibglab: 'So are you in? Do you wanna raid Area 51 again?"
+        + "This time you got me and my other alien friends that are waiting!\n\n"
+        + "1. Yes I'm in!\n"
+        + "2. No I'd like to go home.\n");
+    if (alienConvo0_3 == "1") {
+        alert("Glipglab: 'Well what are we waiting for then! Let's frickin go!");
+        alert("[TO BE CONTIUED...]");
+        alert("[YOU WIN]\n\nClick OK to get your reward!");
+        alert("YOUR REWARD:\n\n[NOTHING]\n\nHOORAY!\nDid you honestly suspect a reward?");
+        TERMINATE_GAME_WON;
+    }
+    else if (alienConvo0_3 == "2") {
+        alert("Glipglab: 'Ugghh... Well... If you really want to... I'm alway in favor of freedom of choice so, see ya!");
+        alert("[YOU WIN]\n\nClick OK to get your reward!");
+        alert("YOUR REWARD:\n\n[NOTHING]\n\nHOORAY!\nDid you honestly suspect a reward?");
+        TERMINATE_GAME_WON;
+    }
 }
 
 function doSomething0() {

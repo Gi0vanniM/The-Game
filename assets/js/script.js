@@ -1,12 +1,12 @@
 // Giovanni Mierop
 // 19A2
-// = == === >= <= || > < &&
+// = == === >= <= || > < && ! ?
 
 var ans;
 var name;
 var gender;
 var lies = 0;
-var class_;
+var class_ = "Florida men";
 var seenAlien_;
 
 function startGame() {
@@ -26,7 +26,11 @@ function startGame() {
 
     nameAndGender();
 
-    alert("Richard: 'So your name is " + name + ", and you're a " + gender + ".'");
+    // alert("Richard: 'So your name is " + name + ", and you're a " + gender + ".'");
+    alert(isGiovanni());
+    if (gender != "boi") {
+        alert("Richard: 'A whamen, eh?'");
+    }
 
     seenAlien();
 
@@ -141,6 +145,12 @@ function seenAlien() {
             alert("Richard: *mumbles* 'Pff lier'");
             lies++;
         }
+        if (aliens_seen_num > 1337) {
+            alert("Richard: '" + aliens_seen_num + " That sound very specific.");
+        }
+        else {
+            alert("Richard: 'Cool story bro'");
+        }
     }
     else if (seenAlien0_1 == "2") {
         alert("Richard: 'Too bad, we all tried.'\n\n*both guards giggle*");
@@ -221,26 +231,35 @@ function doSomething0() {
         + "1. Try to escape\n"
         + "2. Talk to guard\n"
         + "3. Nothing [DEFAULT]\n");
-    if (doSomething0_1 == "1" && !class_ == "Florida men") {
+    if (doSomething0_1 == "1" && !(class_ == "Florida men")) {
         alert("You try to escape but there is two guards with you. "
-            + "One of the guards notices and uses his tazer on you.");
+            + "One of the guards notices and just bitch slaps you in the face.");
         doSomething0();
-    } else if (doSomething0_1 == "1" && class_ == "Florida men") {
+        return;
+    }
+    if (doSomething0_1 == "1" && class_ == "Florida men") {
         console.log("florida men ending");
         alert("You being Florida men, means you can easily handle a couple of guards.");
         alert("You dismanlte both guards in the back of the van and then knock them both down.");
         alert("You then take their gun and keys to go to the drivers area where you disable the other guards and safely stop the van.");
         alert("You then throw all the guards out of the van, one of the guards had blue blood but you didn't really think of it.");
-        alert("You then free all the prisoners and go home as if nothing had happened.");
+        alert("You then free all the prisoners and go home as if nossthing had happened.");
         alert("[YOU WIN]\n\nClick OK to get your reward!");
         alert("YOUR REWARD:\n\n[NOTHING]\n\nHOORAY!\nDid you honestly suspect a reward?");
         TERMINATE_GAME_WON;
     }
-    else if (doSomething0 == "2") {
+    if (doSomething0_1 == "2") {
         alert("You try to talk to the guards, both of them ignore you.");
         doSomething0();
+        return;
     }
     else {
         alert("You decide to just lean back and enjoy the ride as long as you can.");
     }
+}
+
+function isGiovanni() {
+    var reply = (name == "Giovanni" ? "Richard: 'Why hello there " + name + " the " + class_ + " that identifies as a " + gender + ".'" :
+        "Richard: 'So your name is " + name + ", and you're a " + gender + ".'");
+    return reply + "";
 }
